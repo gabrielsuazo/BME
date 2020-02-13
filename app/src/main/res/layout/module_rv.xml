@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:clickable="true"
+    android:foreground="?android:attr/selectableItemBackground"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="20dp"
+    app:cardElevation="3dp"
+    app:cardUseCompatPadding="true"
+    app:cardBackgroundColor="#1F75FE"
+    android:id="@+id/cardviewmodule_id"
+
+
+    >
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="26dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Module"
+            android:textSize="22sp"
+            android:textColor="#FFF"
+            android:textStyle="bold"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="0dp"
+            android:id="@+id/nom_module"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TYPE DU MOD"
+            android:textSize="22sp"
+            android:textColor="#FFF"
+            android:textStyle="bold"
+            android:layout_below="@+id/nom_module"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/type_module"
+
+
+            />
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>
