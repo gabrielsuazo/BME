@@ -10,7 +10,7 @@
     app:cardCornerRadius="20dp"
     app:cardElevation="3dp"
     app:cardUseCompatPadding="true"
-    app:cardBackgroundColor="#3895D3"
+    app:cardBackgroundColor="@color/couleurPatientsEtBilans"
     android:id="@+id/cardviewbilan_id"
     >
 

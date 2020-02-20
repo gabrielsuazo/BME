@@ -39,10 +39,6 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
                 View v2 = inflater.inflate(R.layout.bilan_rv,parent,false);
                 viewHolder = new ViewHolderBilan(v2);
                 break;
-            case 2:
-                View v3 = inflater.inflate(R.layout.module_rv,parent,false);
-                viewHolder = new ViewHolderModule(v3);
-                break;
             default:
                 throw new IllegalStateException("Unexpected value: " + viewType);
         }
@@ -52,8 +48,8 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, final int position) {
 
-        switch (holder.getItemViewType()){
-            case 0:
+        switch (holder.getItemViewType()){  //getItemViewType renvoie 0 si le View est de type Patient et 1 si c'est un Bilan
+            case 0: //RV Patient
                 ViewHolderPatient vhp = (ViewHolderPatient) holder;
                 final Patient patient = (Patient) myData.get(position);
                 vhp.myNom.setText(patient.getNom());
@@ -70,7 +66,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
                     }
                 });
                 break;
-            case 1:
+            case 1: //RV Bilans
                 ViewHolderBilan vhb = (ViewHolderBilan) holder;
                 Bilan bilan = (Bilan) myData.get(position);
                 vhb.numeroBilan.setText("Bilan " + bilan.getNumero());
@@ -83,11 +79,6 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
                         myContext.startActivity(intent);
                     }
                 });
-                break;
-            case 2:
-                ViewHolderModule vhm = (ViewHolderModule) holder;
-                Module module = (Module) myData.get(position);
-                vhm.type_module.setText(module.getNom());
                 break;
         }
 
