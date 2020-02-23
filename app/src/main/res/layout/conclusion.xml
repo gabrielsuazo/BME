@@ -11,6 +11,7 @@
     app:cardCornerRadius="20dp"
     app:cardElevation="3dp"
     android:backgroundTintMode="add"
+    android:layout_centerInParent="true"
     >
 
     <LinearLayout

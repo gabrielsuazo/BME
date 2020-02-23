@@ -40,6 +40,8 @@ public class Bilan_Activity extends AppCompatActivity implements View.OnClickLis
         if (v instanceof CardView){
             int color = ((CardView) v).getCardBackgroundColor().getDefaultColor();
             intent.putExtra("color", color);
+            int sous_module_choisi = 0;
+            intent.putExtra("sous_module_choisi",sous_module_choisi);
         }
         startActivity(intent);
     }

@@ -2,11 +2,14 @@ package com.example.recyclerview;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
@@ -39,16 +42,21 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
                 View v2 = inflater.inflate(R.layout.bilan_rv,parent,false);
                 viewHolder = new ViewHolderBilan(v2);
                 break;
+            case 2:
+                View v3 = inflater.inflate(R.layout.sous_module_rv,parent,false);
+                viewHolder = new ViewHolderSousModule(v3);
+                break;
             default:
                 throw new IllegalStateException("Unexpected value: " + viewType);
         }
         return viewHolder;
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, final int position) {
 
-        switch (holder.getItemViewType()){  //getItemViewType renvoie 0 si le View est de type Patient et 1 si c'est un Bilan
+        switch (holder.getItemViewType()){  //getItemViewType renvoie 0 si le View est de type Patient, 1 si c'est un Bilan, 2 pour un Sous Module
             case 0: //RV Patient
                 ViewHolderPatient vhp = (ViewHolderPatient) holder;
                 final Patient patient = (Patient) myData.get(position);
@@ -80,6 +88,38 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
                     }
                 });
                 break;
+            case 2: //RV SousModules
+                ViewHolderSousModule vhsm = (ViewHolderSousModule) holder;
+                SousModule sousModule = (SousModule) myData.get(position);
+                vhsm.nom.setText(sousModule.getNom());
+                vhsm.cardViewSousModule.setCardBackgroundColor(sousModule.getCouleur());
+                if (sousModule.isChoisi()){
+                    ViewGroup.LayoutParams layoutParams = vhsm.cardViewSousModule.getLayoutParams();
+                    layoutParams.width = ViewGroup.LayoutParams.MATCH_PARENT;
+                    layoutParams.height = 150;
+                    vhsm.cardViewSousModule.setLayoutParams(layoutParams);
+                }
+                else {
+                    ViewGroup.LayoutParams layoutParams = vhsm.cardViewSousModule.getLayoutParams();
+                    layoutParams.width = ViewGroup.LayoutParams.MATCH_PARENT;
+                    layoutParams.height = 120;
+                    vhsm.cardViewSousModule.setLayoutParams(layoutParams);
+                    vhsm.cardViewSousModule.setBackgroundTintList(myContext.getResources().getColorStateList(R.color.gris));
+                }
+
+                ((ViewHolderSousModule) holder).cardViewSousModule.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(myContext,Module_Activity.class);
+                        if (v instanceof CardView){
+                            int color = ((CardView) v).getCardBackgroundColor().getDefaultColor();
+                            intent.putExtra("color", color);
+                            intent.putExtra("sous_module_choisi",position);
+                        }
+                        myContext.startActivity(intent);
+                    }
+                });
+                break;
         }
 
     }
@@ -96,7 +136,11 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
         else if (myData.get(position) instanceof Bilan){
             return 1;
         }
-        return 2;
+        else if (myData.get(position) instanceof SousModule) {
+            return 2;
+        }
+
+        return 3;
     }
 
 

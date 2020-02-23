@@ -78,33 +78,20 @@
 
     </LinearLayout>
 
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_marginLeft="150dp">
 
-
-    <androidx.cardview.widget.CardView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/menu_sous_modules"
-        android:layout_toEndOf="@id/menu_gauche"
-        android:layout_toRightOf="@+id/menu_gauche">
-
-        <RelativeLayout
+        <androidx.recyclerview.widget.RecyclerView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-
-            <TextView
-            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Test pour voir si le menu prends la couleur du Module"
-            android:textColor="#FFF"
-            android:textSize="30dp"></TextView>
+            android:layout_centerHorizontal="true"
+            android:id="@+id/recyclerViewSousModules"
 
-        </RelativeLayout>
-
-    </androidx.cardview.widget.CardView>
+            ></androidx.recyclerview.widget.RecyclerView>
 
 
-
-
+    </RelativeLayout>
 
 </RelativeLayout>
