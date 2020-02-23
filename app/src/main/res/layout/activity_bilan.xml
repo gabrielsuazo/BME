@@ -8,181 +8,63 @@
     android:layout_height="match_parent"
     tools:context=".Bilan_Activity">
 
-    <androidx.cardview.widget.CardView
-        android:layout_width="210dp"
-        android:layout_height="175dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="240dp"
-        android:layout_marginLeft="240dp"
-        android:layout_marginTop="107dp"
-        android:clickable="true"
-        android:foreground="?android:attr/selectableItemBackground"
-        app:cardBackgroundColor="@color/couleurHandicap"
-        app:cardCornerRadius="20dp"
-        app:cardElevation="3dp"
-        app:cardUseCompatPadding="true"
-        android:id="@+id/moduleHandicap">
+    <include
+    layout="@layout/menu_gauche_activity_patient_et_bilan"
+    />
 
-        <RelativeLayout
-            android:layout_width="match_parent"
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="150dp">
+
+        <GridLayout
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="26dp">
+            android:layout_centerInParent="true"
+            android:padding="50dp"
+            android:columnCount="2"
+            android:rowCount="2"
+            >
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="20dp"
-                android:text="Module"
-                android:textColor="#FFF"
-                android:textSize="22sp"
-                android:textStyle="bold" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="45dp"
-                android:text="HANDICAP"
-                android:textColor="#FFF"
-                android:textSize="22sp"
-                android:textStyle="bold" />
-        </RelativeLayout>
+            <include
+                layout="@layout/module_handicap"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                >
+            </include>
 
-    </androidx.cardview.widget.CardView>
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/moduleModeDeVie"
-        android:layout_width="210dp"
-        android:layout_height="175dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="583dp"
-        android:layout_marginLeft="583dp"
-        android:layout_marginTop="107dp"
-        app:cardBackgroundColor="@color/couleurModeDeVie"
-        app:cardCornerRadius="20dp"
-        app:cardElevation="3dp"
-        app:cardUseCompatPadding="true"
-        android:foreground="?android:attr/selectableItemBackground"
-        android:clickable="true">
+            <include
+                layout="@layout/module_mode_de_vie"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="26dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="20dp"
-                android:text="Module"
-                android:textColor="#FFF"
-                android:textSize="22sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="45dp"
-                android:text="MODE DE VIE"
-                android:textColor="#FFF"
-                android:textSize="22sp"
-                android:textStyle="bold" />
-        </RelativeLayout>
-
-    </androidx.cardview.widget.CardView>
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/moduleHabitat"
-        android:layout_width="210dp"
-        android:layout_height="175dp"
-        android:clickable="true"
-        android:foreground="?android:attr/selectableItemBackground"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="240dp"
-        android:layout_marginLeft="240dp"
-        android:layout_marginTop="332dp"
-        app:cardBackgroundColor="@color/couleurHabitat"
-        app:cardCornerRadius="20dp"
-        app:cardElevation="3dp"
-        app:cardUseCompatPadding="true">
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="26dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="20dp"
-                android:text="Module"
-                android:textColor="#FFF"
-                android:textSize="22sp"
-                android:textStyle="bold"
                 />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="45dp"
-                android:text="HABITAT"
-                android:textColor="#FFF"
-                android:textSize="22sp"
-                android:textStyle="bold"
+            <include
+                layout="@layout/module_habitat"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
 
                 />
-        </RelativeLayout>
+
+            <include
+                layout="@layout/conclusion"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                />
+
+        </GridLayout>
 
 
-    </androidx.cardview.widget.CardView>
 
-    <androidx.cardview.widget.CardView
-        android:layout_width="210dp"
-        android:layout_height="175dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="583dp"
-        android:layout_marginLeft="583dp"
-        android:layout_marginTop="332dp"
-        android:clickable="true"
-        android:foreground="?android:attr/selectableItemBackground"
-        app:cardBackgroundColor="@color/couleurConclusion"
-        app:cardCornerRadius="20dp"
-        app:cardElevation="3dp"
-        app:cardUseCompatPadding="true"
-        android:id="@+id/conclusion">
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="26dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="40dp"
-                android:text="CONCLUSION"
-                android:textColor="#FFF"
-                android:textSize="22sp"
-                android:textStyle="bold" />
-
-        </RelativeLayout>
+    </RelativeLayout>
 
 
-    </androidx.cardview.widget.CardView>
+
+
+
 
 
 </RelativeLayout>

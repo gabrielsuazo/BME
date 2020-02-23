@@ -1,9 +1,11 @@
 package com.example.recyclerview;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
@@ -12,6 +14,7 @@ public class Bilan_Activity extends AppCompatActivity implements View.OnClickLis
 
     private CardView handicap,modeDeVie,habitat,conclusion;
 
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

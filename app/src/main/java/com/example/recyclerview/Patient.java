@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class Patient {
 
-    private String nom, date;
+    private String nom, prenom, date;
     ArrayList<Bilan> bilans;
 
     public String getNom() {
@@ -13,6 +13,18 @@ public class Patient {
 
     public void setNom(String nom) {
         this.nom = nom;
+    }
+
+    public String getPrenom() {
+        return prenom;
+    }
+
+    public void setPrenom(String prenom) {
+        this.prenom = prenom;
+    }
+
+    public ArrayList<Bilan> getBilans() {
+        return bilans;
     }
 
     public String getDate() {
@@ -24,8 +36,10 @@ public class Patient {
     }
 
 
-    Patient(String name, String date){
-        this.setNom(name);
+    Patient(String prenom, String nom, String date){
+        this.setPrenom(prenom);
+        this.setNom(nom);
         this.setDate(date);
+        this.bilans = new ArrayList<Bilan>();
     }
 }

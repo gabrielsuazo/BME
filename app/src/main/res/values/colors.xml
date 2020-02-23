@@ -3,9 +3,11 @@
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
-    <color name="couleurPatientsEtBilans">#3895D3</color>
+    <color name="couleurPatientsEtBilans">#5B9BD5</color>
     <color name="couleurHandicap">#006CCC</color>
-    <color name="couleurModeDeVie">#F0F300</color>
+    <color name="couleurModeDeVie">#F8F208</color>
     <color name="couleurHabitat">#770FAF</color>
     <color name="couleurConclusion">#FF9236</color>
+    <color name="couleurMenuGauche">#FFDC00</color>
+    <color name="gris">#505050</color>
 </resources>

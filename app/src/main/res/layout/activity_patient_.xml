@@ -6,23 +6,27 @@
     android:orientation="horizontal"
     tools:context=".Patient_Activity">
 
-    <TextView
-        android:id="@+id/nom_patient_choisi"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Nom"
-        android:layout_marginTop="50dp"
-        android:layout_centerHorizontal="true"
-        android:textSize="28sp"
-        android:textStyle="bold"/>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:layout_below="@+id/nom_patient_choisi"
-        android:layout_marginTop="5dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/recyclerViewBilans"
-        />
+    <include layout="@layout/menu_gauche_activity_patient_et_bilan">
+    </include>
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="150dp"
+        android:padding="20dp">
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/recyclerViewBilans"
+            android:layout_centerInParent="true"
+            />
+
+    </RelativeLayout>
+
+
 
 
 

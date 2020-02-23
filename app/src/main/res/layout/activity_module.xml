@@ -1,14 +1,91 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="horizontal"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+
+    <androidx.appcompat.widget.Toolbar android:orientation="vertical"
+        android:layout_width="150dp"
+        android:layout_height="match_parent"
+        android:background="@color/couleurMenuGauche"
+        android:elevation="0dp"
+        android:id="@+id/menu_gauche"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:clickable="true"
+                android:elevation="4dp"
+                android:foreground="?android:attr/selectableItemBackground"
+                app:cardCornerRadius="40dp"
+                android:layout_marginTop="10dp"
+                android:layout_gravity="center">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@mipmap/ic_home"
+                    android:layout_gravity="center"
+                    android:scaleType="centerCrop"
+                    />
+
+            </androidx.cardview.widget.CardView>
+
+
+
+
+        </LinearLayout>
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <include
+            layout="@layout/module_handicap"
+            android:layout_width="150dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="100dp" />
+
+        <include
+            layout="@layout/module_mode_de_vie"
+            android:layout_width="150dp"
+            android:layout_height="100dp"/>
+
+        <include
+            layout="@layout/module_habitat"
+            android:layout_width="150dp"
+            android:layout_height="100dp" />
+
+        <include
+            layout="@layout/conclusion"
+            android:layout_height="100dp"
+            android:layout_width="150dp"
+            />
+
+
+    </LinearLayout>
+
+
+
     <androidx.cardview.widget.CardView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/menu_sous_modules">
+        android:id="@+id/menu_sous_modules"
+        android:layout_toEndOf="@id/menu_gauche"
+        android:layout_toRightOf="@+id/menu_gauche">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -22,14 +99,12 @@
             android:textColor="#FFF"
             android:textSize="30dp"></TextView>
 
-    </RelativeLayout>
-
-
-
-
+        </RelativeLayout>
 
     </androidx.cardview.widget.CardView>
 
 
 
-</LinearLayout>
+
+
+</RelativeLayout>

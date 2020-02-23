@@ -23,10 +23,8 @@ public class MainActivity extends AppCompatActivity {
         int k = 5;
 
         for (int i = 1; i <= k; i++){
-            lstPatient.add(new Patient("Patient " + i,"Date: 19/03/12"));
+            lstPatient.add(new Patient("John " + i, "Smith","Date: 19/03/12"));
         }
-
-
 
         RecyclerView myRV = (RecyclerView) findViewById(R.id.recyclerViewPatients);         //Création du Recycler View
         RecyclerViewAdapter myAdapter;
@@ -34,4 +32,5 @@ public class MainActivity extends AppCompatActivity {
         myRV.setLayoutManager((new GridLayoutManager(this,3)));              //RV en forme de grille, avec 3 colonnes
         myRV.setAdapter(myAdapter);                                                           //Le ClickListener est directement dans le RV (un pour chaque patient)
     }
+
 }
