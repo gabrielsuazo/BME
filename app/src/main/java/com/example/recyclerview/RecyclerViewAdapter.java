@@ -105,20 +105,22 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
                     layoutParams.height = 120;
                     vhsm.cardViewSousModule.setLayoutParams(layoutParams);
                     vhsm.cardViewSousModule.setBackgroundTintList(myContext.getResources().getColorStateList(R.color.gris));
+
+                    ((ViewHolderSousModule) holder).cardViewSousModule.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Intent intent = new Intent(myContext,Module_Activity.class);
+                            if (v instanceof CardView){
+                                int color = ((CardView) v).getCardBackgroundColor().getDefaultColor();
+                                intent.putExtra("color", color);
+                                intent.putExtra("sous_module_choisi",position);
+                            }
+                            myContext.startActivity(intent);
+                        }
+                    });
                 }
 
-                ((ViewHolderSousModule) holder).cardViewSousModule.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Intent intent = new Intent(myContext,Module_Activity.class);
-                        if (v instanceof CardView){
-                            int color = ((CardView) v).getCardBackgroundColor().getDefaultColor();
-                            intent.putExtra("color", color);
-                            intent.putExtra("sous_module_choisi",position);
-                        }
-                        myContext.startActivity(intent);
-                    }
-                });
+
                 break;
         }
 

@@ -29,7 +29,8 @@
                 android:foreground="?android:attr/selectableItemBackground"
                 app:cardCornerRadius="40dp"
                 android:layout_marginTop="10dp"
-                android:layout_gravity="center">
+                android:layout_gravity="center"
+                android:id="@+id/home">
 
                 <ImageView
                     android:layout_width="match_parent"
@@ -91,7 +92,19 @@
 
             ></androidx.recyclerview.widget.RecyclerView>
 
+        <ImageView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_below="@id/recyclerViewSousModules"
+            android:src="@drawable/ic_home"
+            android:layout_alignParentRight="true"
+            android:clickable="true"
+            android:id="@+id/retour"
+            android:foreground="?android:attr/selectableItemBackground"/>
+
 
     </RelativeLayout>
+
+
 
 </RelativeLayout>

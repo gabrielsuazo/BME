@@ -23,6 +23,7 @@
             app:cardCornerRadius="55dp"
             android:layout_marginTop="10dp"
             android:layout_gravity="center"
+            android:id="@+id/home"
             >
 
             <ImageView
@@ -47,12 +48,11 @@
             android:layout_gravity="center"
             app:cardBackgroundColor="#000"
             app:cardUseCompatPadding="true"
+            android:id="@+id/informations_patient_choisi"
             >
 
 
             <ImageView
-
-                android:id="@+id/informations_patient"
                 android:layout_width="110dp"
                 android:layout_height="110dp"
                 android:src="@mipmap/ic_therapeute"
@@ -60,13 +60,7 @@
 
                 />
 
-
-
         </androidx.cardview.widget.CardView>
-
-
-
-
 
         <TextView
             android:layout_width="wrap_content"

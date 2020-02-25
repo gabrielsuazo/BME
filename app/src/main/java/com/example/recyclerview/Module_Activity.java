@@ -6,6 +6,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
@@ -19,9 +20,10 @@ import java.util.List;
 
 public class Module_Activity extends AppCompatActivity implements View.OnClickListener {
 
-    private CardView handicap,modeDeVie,habitat,conclusion;
+    private CardView handicap,modeDeVie,habitat,conclusion,home;
     List<Object> lstSousModules;
     int sous_module_choisi;
+    private ImageView retour;
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +36,9 @@ public class Module_Activity extends AppCompatActivity implements View.OnClickLi
         habitat = findViewById(R.id.moduleHabitat);
         conclusion = findViewById(R.id.conclusion);
 
+        retour = findViewById(R.id.retour);
+        home = findViewById(R.id.home);
+
 
         Intent intent = getIntent();
         int color = intent.getExtras().getInt("color");
@@ -43,6 +48,9 @@ public class Module_Activity extends AppCompatActivity implements View.OnClickLi
         configurationModules(habitat,color,sous_module_choisi);
         configurationModules(conclusion,color,sous_module_choisi);
 
+        retour.setOnClickListener(this);
+        home.setOnClickListener(this);
+
         RecyclerView myRV = (RecyclerView) findViewById(R.id.recyclerViewSousModules);         //Création du Recycler View
         RecyclerViewAdapter myAdapter;
         myAdapter = new RecyclerViewAdapter(this,lstSousModules);
@@ -51,11 +59,21 @@ public class Module_Activity extends AppCompatActivity implements View.OnClickLi
     }
 
 public void onClick(View v) {
-        Intent intent = new Intent(this,Module_Activity.class);
+        Intent intent = new Intent();
         if (v instanceof CardView){
-        int color = ((CardView) v).getCardBackgroundColor().getDefaultColor();
-        intent.putExtra("color", color);
-        intent.putExtra("sous_module_choisi",0);
+            switch (v.getId()){
+                case R.id.home:
+                    intent = new Intent(this,MainActivity.class);
+                    break;
+                default:
+                    intent = new Intent(this,Module_Activity.class);
+                    int color = ((CardView) v).getCardBackgroundColor().getDefaultColor();
+                    intent.putExtra("color", color);
+                    intent.putExtra("sous_module_choisi",0);
+            }
+        }
+        else if (v instanceof ImageView) { //cas de l'option retour
+            intent = new Intent(this, Bilan_Activity.class);
         }
         startActivity(intent);
         }
