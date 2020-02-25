@@ -4,7 +4,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,6 +15,7 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
 
     List<Object> lstPatient;
+    Button modifier = null;
 
 
     @Override
@@ -31,6 +35,18 @@ public class MainActivity extends AppCompatActivity {
         myAdapter = new RecyclerViewAdapter(this,lstPatient);                       //Adaptateur qui prends la liste de patients
         myRV.setLayoutManager((new GridLayoutManager(this,3)));              //RV en forme de grille, avec 3 colonnes
         myRV.setAdapter(myAdapter);                                                           //Le ClickListener est directement dans le RV (un pour chaque patient)
+
+        // On récupère la vue associée au bouton de modification des paramètres de l'ergothérapeuthe
+        modifier = findViewById(R.id.modifierErgo);
+        modifier.setOnClickListener(listenerModifier);
     }
+
+    View.OnClickListener listenerModifier = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            Intent activiteErgo = new Intent(MainActivity.this, Ergotherapeute_Activity.class);
+            startActivity(activiteErgo);
+        }
+    };
 
 }

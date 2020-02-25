@@ -16,18 +16,12 @@
         android:layout_marginLeft="150dp"
         android:padding="20dp">
 
-
         <androidx.recyclerview.widget.RecyclerView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/recyclerViewBilans"
-            android:layout_centerInParent="true"
-            />
+            android:layout_centerInParent="true"/>
 
     </RelativeLayout>
-
-
-
-
 
 </RelativeLayout>

@@ -8,7 +8,6 @@
     tools:context=".MainActivity">
 
     <androidx.appcompat.widget.Toolbar
-        xmlns:android="http://schemas.android.com/apk/res/android"
         android:orientation="vertical"
         android:layout_width="150dp"
         android:layout_height="match_parent"
@@ -33,19 +32,12 @@
                 app:cardBackgroundColor="#000"
                 app:cardUseCompatPadding="true">
 
-
                 <ImageView
-
                     android:id="@+id/informations_therapeute"
                     android:layout_width="110dp"
                     android:layout_height="110dp"
                     android:src="@mipmap/ic_therapeute"
-                    android:layout_gravity="center"
-
-                    />
-
-
-
+                    android:layout_gravity="center"/>
 
             </androidx.cardview.widget.CardView>
 
@@ -73,11 +65,15 @@
                 android:layout_marginTop="20dp"
                 android:textColor="#000"/>
 
+            <Button
+                android:id="@+id/modifierErgo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/modifier" />
 
         </LinearLayout>
 
     </androidx.appcompat.widget.Toolbar>
-
 
     <RelativeLayout
         android:layout_width="fill_parent"
@@ -89,9 +85,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/recyclerViewPatients"
-            android:layout_centerVertical="true"
-
-            />
+            android:layout_centerVertical="true"/>
 
     </RelativeLayout>
 

@@ -1,3 +1,21 @@
 <resources>
     <string name="app_name">BME</string>
+
+    //Chaînes de caractères pour l'activité de l'ergothérapeute
+    <string name="titre">Profil de l\'ergothérapeute</string>
+    <string name="nom">Nom :</string>
+    <string name="nom_defaut">Entrer un nom</string>
+    <string name="nouveauNom">Entrer un nouveau nom</string>
+    <string name="prenom">Prénom :</string>
+    <string name="prenom_defaut">Entrer un prénom</string>
+    <string name="nouveauPrenom">Entrer un nouveau prénom</string>
+    <string name="modifier">Modifier</string>
+    <string name="confirmer">Confirmer</string>
+    <string name="annuler">Annuler</string>
+    <string name="persoListesDer">Personnalisation des listes déroulantes</string>
+    <string name="persoId">Identité</string>
+    <string name="info">Informations</string>
+    <string name="id">Identité</string>
+    <string name="mdv">Mode de vie</string>
+    <string name="conclusion">Conclusion</string>
 </resources>
