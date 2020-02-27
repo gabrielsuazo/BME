@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
         int k = 5;
 
         for (int i = 1; i <= k; i++){
-            lstPatient.add(new Patient("John " + i, "Smith","Date: 19/03/12"));
+            lstPatient.add(new Patient("Pierre " + i, "Dupont","Date: 19/03/12"));
         }
 
         RecyclerView myRV = (RecyclerView) findViewById(R.id.recyclerViewPatients);         //Création du Recycler View
