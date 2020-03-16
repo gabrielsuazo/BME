@@ -24,7 +24,7 @@ public class Ergotherapeute_Activity extends AppCompatActivity implements Dialog
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_ergotherapeute);
 
         Intent i = getIntent();
 
