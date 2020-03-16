@@ -1,15 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<diagram program="umlet" version="14.3.0">
-  <zoom_level>10</zoom_level>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>280</x>
-      <y>240</y>
-      <w>210</w>
-      <h>190</h>
-    </coordinates>
-    <panel_attributes>&lt;&lt;MainActivity&gt;&gt;
+<diagram program="umletino" version="14.3.0"><zoom_level>10</zoom_level><element><id>UMLClass</id><coordinates><x>280</x><y>240</y><w>210</w><h>190</h></coordinates><panel_attributes>&lt;&lt;MainActivity&gt;&gt;
 //Package::FatClass
 //{Some Properties}
 --
@@ -19,18 +8,7 @@
 //#Operation(i: int): int
 // /+AbstractOperation()/
 --
-- Recyclor View</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>280</x>
-      <y>460</y>
-      <w>210</w>
-      <h>190</h>
-    </coordinates>
-    <panel_attributes>&lt;&lt;Patient Activity&gt;&gt;
+- Recyclor View</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>280</x><y>460</y><w>210</w><h>190</h></coordinates><panel_attributes>&lt;&lt;Patient Activity&gt;&gt;
 //Package::FatClass
 //{Some Properties}
 --
@@ -41,18 +19,7 @@ _-ClassAttribute: Long_
 /+AbstractOperation()/
 --
 Responsibilities
-</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>280</x>
-      <y>680</y>
-      <w>210</w>
-      <h>190</h>
-    </coordinates>
-    <panel_attributes>&lt;&lt;Bilan Activity&gt;&gt;
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>280</x><y>680</y><w>210</w><h>190</h></coordinates><panel_attributes>&lt;&lt;Bilan Activity&gt;&gt;
 //Package::FatClass
 //{Some Properties}
 --
@@ -61,71 +28,18 @@ Responsibilities
 --
 Click Listener
 --
-</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>370</x>
-      <y>420</y>
-      <w>140</w>
-      <h>60</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;-
-	Click on Patient</panel_attributes>
-    <additional_attributes>10.0;40.0;10.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>370</x>
-      <y>640</y>
-      <w>120</w>
-      <h>60</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;-
-	Click on Bilan</panel_attributes>
-    <additional_attributes>10.0;40.0;10.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>280</x>
-      <y>0</y>
-      <w>210</w>
-      <h>190</h>
-    </coordinates>
-    <panel_attributes>&lt;&lt;Profil Ergo Activity&gt;&gt;
-
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>370</x><y>420</y><w>130</w><h>60</h></coordinates><panel_attributes>lt=&lt;&lt;-
+	Click on Patient</panel_attributes><additional_attributes>10;40;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>370</x><y>640</y><w>110</w><h>60</h></coordinates><panel_attributes>lt=&lt;&lt;-
+	Click on Bilan</panel_attributes><additional_attributes>10;40;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>280</x><y>10</y><w>210</w><h>190</h></coordinates><panel_attributes>&lt;&lt;ErgotherapeuteActivity&gt;&gt;
+--
+Button modifierNom
+Button modiferPrenom
+TextView nomErgo
+TextView prenomErgo
 --
 
 --
-
---
-à faire</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>370</x>
-      <y>180</y>
-      <w>30</w>
-      <h>80</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;60.0</additional_attributes>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>0</x>
-      <y>60</y>
-      <w>210</w>
-      <h>190</h>
-    </coordinates>
-    <panel_attributes>&lt;&lt;Patient class&gt;&gt;
+à faire</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>370</x><y>190</y><w>30</w><h>70</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;50</additional_attributes></element><element><id>UMLClass</id><coordinates><x>0</x><y>60</y><w>210</w><h>190</h></coordinates><panel_attributes>&lt;&lt;Patient class&gt;&gt;
 
 --
 - Bilan class
@@ -136,18 +50,7 @@ _-ClassAttribute: Long_
 --
 Responsibilities
 -- Resp1
-*-- Resp2*</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>10</x>
-      <y>330</y>
-      <w>210</w>
-      <h>190</h>
-    </coordinates>
-    <panel_attributes>&lt;&lt;MyViewHolder&gt;
+*-- Resp2*</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>10</x><y>330</y><w>210</w><h>190</h></coordinates><panel_attributes>&lt;&lt;MyViewHolder&gt;
 
 --
 -myImageView
@@ -160,7 +63,16 @@ cardView :
 --
 Responsibilities
 -- Resp1
-*-- Resp2*</panel_attributes>
-    <additional_attributes/>
-  </element>
-</diagram>
+*-- Resp2*</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>590</x><y>20</y><w>160</w><h>90</h></coordinates><panel_attributes>&lt;&lt;DialogueNom&gt;&gt;
+--
+EditText nom
+--
+
+--
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>590</x><y>120</y><w>160</w><h>90</h></coordinates><panel_attributes>&lt;&lt;DialoguePrenom&gt;&gt;
+--
+EditText prenom
+--
+
+--
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>480</x><y>60</y><w>130</w><h>30</h></coordinates><panel_attributes>lt=&lt;&lt;.</panel_attributes><additional_attributes>110;10;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>480</x><y>150</y><w>130</w><h>30</h></coordinates><panel_attributes>lt=&lt;&lt;.</panel_attributes><additional_attributes>110;10;10;10</additional_attributes></element></diagram>
