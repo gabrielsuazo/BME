@@ -73,7 +73,9 @@ public class Ergotherapeute_Activity extends AppCompatActivity implements Dialog
         prenomErgo.setText(prenom);
     }
 
+    // la methode onclick associé au bouton 
     public void configuation(View view) {
+        // onDialog() fait appel à la boite de dialogie
         openDialog();
     }
 
