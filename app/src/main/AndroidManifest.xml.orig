@@ -21,16 +21,16 @@
         <activity
             android:name=".Ergotherapeute_Activity"
             android:screenOrientation="landscape"></activity>
-<<<<<<< HEAD
+
         <activity android:name=".Informations_Patient_Activity"
             android:screenOrientation="landscape"></activity>
         <activity android:name=".MainActivity"
-=======
+
         <activity
             android:name=".MainActivity"
             android:screenOrientation="landscape"></activity>
         <activity android:name=".Login_activity"
->>>>>>> 9b40afabdfa9a0b715512bb61fc67ce998d3bcb3
+
             android:screenOrientation="landscape">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
