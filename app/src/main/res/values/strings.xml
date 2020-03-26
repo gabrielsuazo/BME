@@ -18,4 +18,12 @@
     <string name="id">Identité</string>
     <string name="mdv">Mode de vie</string>
     <string name="conclusion">Conclusion</string>
+    <string name="changerMdp">Changer de mot de passe</string>
+
+    //Chaînes de caractères pour le login
+    <string name="entrerMdp">Entrer le mot de passe</string>
+    <string name="mdp">Mot de passe</string>
+    <string name="ancienMdp">Ancien mot de passe</string>
+    <string name="nouveauMdp">Nouveau mot de passe</string>
+
 </resources>

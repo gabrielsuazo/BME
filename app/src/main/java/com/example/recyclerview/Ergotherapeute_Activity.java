@@ -72,5 +72,15 @@ public class Ergotherapeute_Activity extends AppCompatActivity implements Dialog
         // Le prénom de l'ergothérapeute prend celui donné dans la boîte de dialogue
         prenomErgo.setText(prenom);
     }
+
+    public void configuation(View view) {
+        openDialog();
+    }
+
+    private void openDialog() {
+        DialogMotdepasse dialog = new DialogMotdepasse();
+        dialog.show(getSupportFragmentManager(),"modifier_mot_de_passe");
+
+    }
 }
 
