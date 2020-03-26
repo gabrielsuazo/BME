@@ -17,7 +17,7 @@ import java.util.List;
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     private Context myContext;
-    private List<Object> myData;
+    private List<Object> myData;        //Ce la liste qui va être affiché par le recycler view
 
 
     public RecyclerViewAdapter(Context myContext, List<Object> myData){
@@ -33,16 +33,21 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
         RecyclerView.ViewHolder viewHolder;
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
 
+
+        //On doit prendre le ViewHolder adapté au type de l'object
         switch(viewType){
             case 0:
+                //Pour la liste des Patients
                 View v1 = inflater.inflate(R.layout.patient_rv,parent,false);
                 viewHolder = new ViewHolderPatient(v1);
                 break;
             case 1:
+                //Pour la liste des Bilans
                 View v2 = inflater.inflate(R.layout.bilan_rv,parent,false);
                 viewHolder = new ViewHolderBilan(v2);
                 break;
             case 2:
+                //Pour les sous-modules
                 View v3 = inflater.inflate(R.layout.sous_module_rv,parent,false);
                 viewHolder = new ViewHolderSousModule(v3);
                 break;
@@ -60,19 +65,39 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
             case 0: //RV Patient
                 ViewHolderPatient vhp = (ViewHolderPatient) holder;
                 final Patient patient = (Patient) myData.get(position);
-                vhp.myNom.setText(patient.getNom());
-                vhp.myDate.setText(patient.getDate());
+                if (patient.isVide()){
+                    vhp.myNom.setText("Nouveau Patient");
+                    vhp.myDate.setText("");
+                    ((ViewHolderPatient) holder).cardViewPatient.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            patient.setPrenom("Entrer prenom");
+                            patient.setNom("Entre nom");
+                            patient.setDate("02/28/2020");
+                            myData.add(new Patient());
+                            notifyDataSetChanged();
 
-                ((ViewHolderPatient) holder).cardViewPatient.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
+                        }
+                    });
+                }
+                else {
+                    vhp.myNom.setText(patient.getNom());
+                    vhp.myDate.setText(patient.getDate());
 
-                        Intent intent = new Intent(myContext,Patient_Activity.class);
-                        intent.putExtra("Nom",patient.getNom());
+                    ((ViewHolderPatient) holder).cardViewPatient.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
 
-                        myContext.startActivity(intent);
-                    }
-                });
+                            Intent intent = new Intent(myContext, Patient_Activity.class);
+                            intent.putExtra("Nom", patient.getNom());
+                            intent.putExtra("Prenom", patient.getPrenom());
+
+                            myContext.startActivity(intent);
+                        }
+
+                    });
+                }
+
                 break;
             case 1: //RV Bilans
                 ViewHolderBilan vhb = (ViewHolderBilan) holder;
@@ -114,6 +139,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
                                 int color = ((CardView) v).getCardBackgroundColor().getDefaultColor();
                                 intent.putExtra("color", color);
                                 intent.putExtra("sous_module_choisi",position);
+
                             }
                             myContext.startActivity(intent);
                         }

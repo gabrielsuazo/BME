@@ -12,6 +12,7 @@
     app:cardElevation="3dp"
     app:cardUseCompatPadding="true"
     app:cardBackgroundColor="@color/couleurPatientsEtBilans"
+
     >
 
     <RelativeLayout
