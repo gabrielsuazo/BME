@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">BME</string>
+    <string name="profil"><b>Profil de l\'ergothérapeuthe</b></string>
+    <string name="recherche">Rechercher un patient</string>
+    <string name="patient1">Patient n°1</string>
+    <string name="patient2">Patient n°2</string>
+    <string name="patient3">Patient n°3</string>
+    <string name="patientNew">Nouveau patient</string>
+    <string name="newpatient"><b>+</b></string>
 </resources>

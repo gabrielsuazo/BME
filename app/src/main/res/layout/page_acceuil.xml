@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="Page_Acceuil">
+
+
+    <LinearLayout
+        android:id="@+id/margin"
+        android:layout_width="114dp"
+        android:layout_height="match_parent"
+        android:background="@color/marge"
+        android:orientation="vertical"
+        >
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/translucide">
+
+
+            <Button
+                android:id="@+id/imgProfilButton"
+                android:layout_width="85dp"
+                android:layout_height="85dp"
+                android:layout_margin="12dp"
+                style="@style/translucide"
+                />
+
+            <ImageView
+                android:id="@+id/imgprofil"
+                android:layout_width="85dp"
+                android:layout_height="85dp"
+                style="@style/translucide"
+                android:contentDescription="@string/profil"
+                android:src="@drawable/profilicon2"
+                android:layout_margin="12dp"
+                />
+
+        </RelativeLayout>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/profil"
+            android:gravity="center"
+            android:layout_marginLeft="2dp"
+            android:layout_marginRight="2dp"
+            />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_toRightOf="@+id/margin"
+        >
+
+        <EditText
+            android:id="@+id/recherche"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/recherche"
+            android:layout_margin="10dp"
+            android:padding="15dp"
+            android:background="@drawable/border"
+            />
+
+
+        <Button
+            android:id="@+id/patient1"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_below="@+id/recherche"
+            android:layout_marginLeft="20dp"
+            android:background="@drawable/border_button" />
+
+        <Button
+            android:id="@+id/patient2"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_below="@+id/recherche"
+            android:layout_marginLeft="20dp"
+            android:background="@drawable/border_button"
+            android:layout_toRightOf="@+id/patient1"
+            />
+
+        <Button
+            android:id="@+id/patient3"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_below="@+id/recherche"
+            android:layout_marginLeft="20dp"
+            android:background="@drawable/border_button"
+            android:layout_toRightOf="@+id/patient2"
+            />
+
+        <Button
+            android:id="@+id/patient4"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_below="@+id/recherche"
+            android:layout_marginLeft="20dp"
+            android:background="@drawable/border_button"
+            android:layout_toRightOf="@+id/patient3"
+            />
+
+        <Button
+            android:id="@+id/patient5"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_below="@+id/recherche"
+            android:layout_marginLeft="20dp"
+            android:background="@drawable/border_button"
+            android:layout_toRightOf="@+id/patient4"
+            />
+
+        <Button
+            android:id="@+id/patient6"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_below="@+id/patient1"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/border_button"
+            />
+
+        <Button
+            android:id="@+id/patient7"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_below="@+id/patient1"
+            android:layout_marginLeft="20dp"
+            android:layout_marginStart="20dp"
+            android:background="@drawable/border_button"
+            android:layout_marginTop="10dp"
+            android:layout_toRightOf="@+id/patient6"
+            android:layout_toEndOf="@+id/patient6"
+            />
+
+        <Button
+            android:id="@+id/newPatient"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_below="@+id/patient1"
+            android:layout_marginLeft="20dp"
+            android:background="@drawable/border_button_new"
+            android:layout_marginTop="10dp"
+            android:layout_toRightOf="@+id/patient7"
+            android:text="@string/newpatient"
+            android:textSize="@android:dimen/app_icon_size"
+            />
+
+
+
+
+    </RelativeLayout>
+
+
+</RelativeLayout>

@@ -8,4 +8,8 @@
     <color name="couleurModeDeVie">#F0F300</color>
     <color name="couleurHabitat">#770FAF</color>
     <color name="couleurConclusion">#FF9236</color>
+    <color name="translucide">#00000000</color>
+    <color name="marge">#F4A121</color>
+    <color name="button">#80c7f2</color>
+    <color name="recherche">#D9D9D9</color>
 </resources>
