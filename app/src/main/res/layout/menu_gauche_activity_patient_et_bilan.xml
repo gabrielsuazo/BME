@@ -85,7 +85,15 @@
             android:layout_height="wrap_content"
             android:text="Prenom"
             android:textSize="20dp"
-            android:textColor="#000"/>
+            android:textColor="#000"
+            android:id="@+id/prenom_patient_choisi"/>
+
+        <Button
+            android:id="@+id/modifierPatient"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/modifier"
+            android:layout_marginTop="20dp"/>
 
     </LinearLayout>
 

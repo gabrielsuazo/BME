@@ -14,10 +14,9 @@
         <ImageView
             android:id="@+id/image"
             android:src="@mipmap/anfe1"
-            android:layout_above="@id/mot_de_passe"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"/>
+            android:layout_gravity="center"/>
         <!---
         Au cas on envisage aussi le nom de l'ergo pour l'identification
         <TextView
@@ -32,22 +31,20 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="16dp"
-            android:text="Entrer le mot de passe"/>
+            android:textSize="16sp"
+            android:text="@string/entrerMdp"/>
         <EditText
             android:id="@+id/mot_de_passe"
             android:layout_width="283dp"
             android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:layout_centerHorizontal="true"
-            android:hint="mot de passe"
+            android:hint="@string/mdp"
             android:inputType="textPassword"/>
         <Button
             android:id="@+id/entrer"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:text="Entrer "
+            android:layout_gravity="center"
+            android:text="@string/confirmer"
             android:onClick="connexion" />
     </LinearLayout>
 </RelativeLayout>

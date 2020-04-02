@@ -63,18 +63,25 @@ public void onClick(View v) {
         if (v instanceof CardView){
             switch (v.getId()){
                 case R.id.home:
+                    //On revient à l'activité main (déjà créée) en éliminant les autres activités
                     intent = new Intent(this,MainActivity.class);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     break;
                 default:
                     intent = new Intent(this,Module_Activity.class);
                     int color = ((CardView) v).getCardBackgroundColor().getDefaultColor();
                     intent.putExtra("color", color);
                     intent.putExtra("sous_module_choisi",0);
+                    finish();
+
             }
         }
         else if (v instanceof ImageView) { //cas de l'option retour
+            //On revient à l'acitivité bilan (déjà créée)
             intent = new Intent(this, Bilan_Activity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
         }
+
         startActivity(intent);
         }
 @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
@@ -83,12 +90,12 @@ public void configurationModules(CardView v, int color,int sous_module_choisi){
             ViewGroup.LayoutParams layoutParams = v.getLayoutParams();
             layoutParams.width = 250;
             layoutParams.height = 150;
-            v.setLayoutParams(layoutParams);
+            v.setLayoutParams(layoutParams);        //Le module choisi est plus grand
             configurationLstSousModules(v,color,lstSousModules,sous_module_choisi);
 
         }
         else {
-            v.setBackgroundTintList(this.getResources().getColorStateList(R.color.gris));
+            v.setBackgroundTintList(this.getResources().getColorStateList(R.color.gris));       //Les modules non choisis sont grisés
             v.setOnClickListener(this);
 
         }
@@ -97,7 +104,7 @@ public void configurationModules(CardView v, int color,int sous_module_choisi){
 @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
 public void configurationLstSousModules(CardView v, int color, List<Object> lstSousModules,int sous_module_choisi){
         switch (v.getId()){
-            case R.id.moduleHandicap:
+            case R.id.moduleHandicap:   //Ajout des sous-modules au module Handicap
                 lstSousModules.add(new SousModule("Identité",color));
                 lstSousModules.add(new SousModule("Fonctions cognitives",color));
                 lstSousModules.add(new SousModule("Motricité/Sensorialité",color));
@@ -105,18 +112,18 @@ public void configurationLstSousModules(CardView v, int color, List<Object> lstS
                 lstSousModules.add(new SousModule("Critères",color));
                 lstSousModules.add(new SousModule("Graphiques",color));
                 break;
-            case R.id.moduleModeDeVie:
+            case R.id.moduleModeDeVie:  //Ajout des sous-modules au module Mode de Vie
                 lstSousModules.add(new SousModule("Informations aidant",color));
                 lstSousModules.add(new SousModule("Activités du patient",color));
                 lstSousModules.add(new SousModule("Habiletés relationnelles/sociales",color));
                 lstSousModules.add(new SousModule("Besoins aidant",color));
                 lstSousModules.add(new SousModule("Synthèse",color));
                 break;
-            case R.id.moduleHabitat:
+            case R.id.moduleHabitat:    //Ajout des sous-modules au module Habitat
                 lstSousModules.add(new SousModule("Evaluation lieux de vie",color));
                 lstSousModules.add(new SousModule("Evaluation équipements et services quartier",color));
                 break;
-            case R.id.conclusion:
+            case R.id.conclusion:       //Ajout des sous-modules au module Conclusion
                 lstSousModules.add(new SousModule("Ergothérapie",color));
                 lstSousModules.add(new SousModule("Renseignements",color));
                 lstSousModules.add(new SousModule("Evaluation",color));

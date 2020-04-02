@@ -67,7 +67,8 @@
                 android:id="@+id/modifierErgo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/modifier" />
+                android:text="@string/modifier"
+                android:layout_marginTop="20dp"/>
 
         </LinearLayout>
 

@@ -1,27 +1,14 @@
 package com.example.recyclerview;
 
+import android.os.Parcel;
+
 import java.util.ArrayList;
 
-public class Patient {
+public class Patient extends Personne{
 
-    private String nom, prenom, date;
+    private String date;
     ArrayList<Bilan> bilans;
 
-    public String getNom() {
-        return nom;
-    }
-
-    public void setNom(String nom) {
-        this.nom = nom;
-    }
-
-    public String getPrenom() {
-        return prenom;
-    }
-
-    public void setPrenom(String prenom) {
-        this.prenom = prenom;
-    }
 
     public ArrayList<Bilan> getBilans() {
         return bilans;
@@ -36,10 +23,24 @@ public class Patient {
     }
 
 
-    Patient(String prenom, String nom, String date){
-        this.setPrenom(prenom);
-        this.setNom(nom);
+    Patient(String nom, String prenom, String date){
+        super(nom,prenom);
         this.setDate(date);
         this.bilans = new ArrayList<Bilan>();
     }
+
+    Patient(){
+        setDate("");
+        setNom("");
+        setPrenom("");
+        this.bilans = new ArrayList<Bilan>();
+
+    }
+
+    boolean isVide(){
+        return (this.getDate() == "" && this.getNom() == "" && this.getPrenom() == "");
+    }
+
+
+
 }
