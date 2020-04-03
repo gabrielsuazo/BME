@@ -1,11 +1,11 @@
-package com.example.recyclerview;
+package com.example.recyclerview.Model;
 
-public class SousModule {
+public class  SousModule {
     private String nom;
     private int couleur;
     private boolean choisi;
 
-    SousModule(String name, int color){
+    public SousModule(String name, int color){
         this.nom = name;
         this.couleur = color;
         this.choisi = false;

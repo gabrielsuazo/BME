@@ -1,23 +1,26 @@
-package com.example.recyclerview;
+package com.example.recyclerview.View;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.DialogFragment;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.PersistableBundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.DialogFragment;
+import com.example.recyclerview.R;
+import com.example.recyclerview.View.DialogMotdepasse;
+import com.example.recyclerview.View.DialogueNom;
+import com.example.recyclerview.View.DialoguePrenom;
 
-public class Informations_Patient_Activity extends AppCompatActivity implements DialogueNom.NomDialogListener, DialoguePrenom.PrenomDialogListener {
+public class Ergotherapeute_Activity extends AppCompatActivity implements DialogueNom.NomDialogListener, DialoguePrenom.PrenomDialogListener {
 
+    // Définition des vues de l'activité
     private Button modifierNom = null;
     private Button modifierPrenom = null;
-    private TextView nomPatient = null;
-    private TextView prenomPatient = null;
-    Patient patient;
+    private TextView nomErgo = null;
+    private TextView prenomErgo = null;
 
     // Définition des boîtes de dialogue
     private DialogFragment fragmentNom = null;
@@ -26,24 +29,22 @@ public class Informations_Patient_Activity extends AppCompatActivity implements 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_informations_patient);
+        setContentView(R.layout.activity_ergotherapeute);
 
         Intent i = getIntent();
 
+        // Récupération de toutes les vues de l'activité
         modifierNom = findViewById(R.id.modifierNom);
         modifierPrenom = findViewById(R.id.modifierPrenom);
-        nomPatient = findViewById(R.id.texteNom);
-        prenomPatient = findViewById(R.id.textePrenom);
+        nomErgo = findViewById(R.id.texteNom);
+        prenomErgo = findViewById(R.id.textePrenom);
 
         modifierNom.setOnClickListener(listenerModifierNom);
         modifierPrenom.setOnClickListener(listenerModifierPrenom);
 
-        Intent intent = getIntent();
-        nomPatient.setText("Entrer un nom");
-        prenomPatient.setText("Entrer un prénom");
     }
 
-    // Création du listener de modification du nom du patient
+    // Création du listener de modification du nom de l'ergothérapeute
     View.OnClickListener listenerModifierNom = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
@@ -54,7 +55,7 @@ public class Informations_Patient_Activity extends AppCompatActivity implements 
         }
     };
 
-    // Création du listener de modification du prénom du patient
+    // Création du listener de modification du prénom de l'ergothérapeute
     View.OnClickListener listenerModifierPrenom = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
@@ -65,15 +66,26 @@ public class Informations_Patient_Activity extends AppCompatActivity implements 
         }
     };
 
+    @Override
     public void onDialogNomPositiveClick(DialogFragment dialog, String nom) {
-        // Le nom du patient prend celui donné dans la boîte de dialogue
-        nomPatient.setText(nom);
-        patient.setNom(nom);
+        // Le nom de l'ergothérapeute prend celui donné dans la boîte de dialogue
+        nomErgo.setText(nom);
     }
 
+    @Override
     public void onDialogPrenomPositiveClick(DialogFragment dialog, String prenom) {
-        // Le prénom du patient prend celui donné dans la boîte de dialogue
-        prenomPatient.setText(prenom);
-        patient.setPrenom(prenom);
+        // Le prénom de l'ergothérapeute prend celui donné dans la boîte de dialogue
+        prenomErgo.setText(prenom);
+    }
+
+    public void configuation(View view) {
+        openDialog();
+    }
+
+    private void openDialog() {
+        DialogMotdepasse dialog = new DialogMotdepasse();
+        dialog.show(getSupportFragmentManager(),"modifier_mot_de_passe");
+
     }
 }
+

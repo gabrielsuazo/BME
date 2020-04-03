@@ -1,4 +1,6 @@
-package com.example.recyclerview;
+package com.example.recyclerview.Model;
+
+import com.example.recyclerview.Controler.Patient;
 
 import java.util.ArrayList;
 

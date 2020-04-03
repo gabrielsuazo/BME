@@ -1,6 +1,5 @@
-package com.example.recyclerview;
+package com.example.recyclerview.View;
 
-import android.app.ActionBar;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
@@ -11,9 +10,12 @@ import android.widget.ImageView;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
-import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
+
+import com.example.recyclerview.Model.SousModule;
+import com.example.recyclerview.R;
+import com.example.recyclerview.Controler.RecyclerViewAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -64,7 +66,7 @@ public void onClick(View v) {
             switch (v.getId()){
                 case R.id.home:
                     //On revient à l'activité main (déjà créée) en éliminant les autres activités
-                    intent = new Intent(this,MainActivity.class);
+                    intent = new Intent(this, MainActivity.class);
                     intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     break;
                 default:

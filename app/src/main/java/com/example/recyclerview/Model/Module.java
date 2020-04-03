@@ -1,4 +1,4 @@
-package com.example.recyclerview;
+package com.example.recyclerview.Model;
 
 public class Module {
     private String nom;

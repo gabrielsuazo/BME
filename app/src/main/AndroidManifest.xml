@@ -10,25 +10,25 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".Module_Activity"
+            android:name=".View.Module_Activity"
             android:screenOrientation="landscape"></activity>
         <activity
-            android:name=".Patient_Activity"
+            android:name=".View.Patient_Activity"
             android:screenOrientation="landscape"></activity>
         <activity
-            android:name=".Bilan_Activity"
+            android:name=".View.Bilan_Activity"
             android:screenOrientation="landscape"></activity>
         <activity
-            android:name=".Ergotherapeute_Activity"
+            android:name=".View.Ergotherapeute_Activity"
             android:screenOrientation="landscape"></activity>
 
-        <activity android:name=".Informations_Patient_Activity"
+        <activity android:name=".View.Informations_Patient_Activity"
             android:screenOrientation="landscape"></activity>
 
         <activity
-            android:name=".MainActivity"
+            android:name=".View.MainActivity"
             android:screenOrientation="landscape"></activity>
-        <activity android:name=".Login_activity"
+        <activity android:name=".View.Login_activity"
 
             android:screenOrientation="landscape">
             <intent-filter>

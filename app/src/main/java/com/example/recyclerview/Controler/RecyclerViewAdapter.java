@@ -1,4 +1,4 @@
-package com.example.recyclerview;
+package com.example.recyclerview.Controler;
 
 import android.content.Context;
 import android.content.Intent;
@@ -11,6 +11,13 @@ import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.recyclerview.Model.Bilan;
+import com.example.recyclerview.Model.SousModule;
+import com.example.recyclerview.R;
+import com.example.recyclerview.View.Bilan_Activity;
+import com.example.recyclerview.View.Module_Activity;
+import com.example.recyclerview.View.Patient_Activity;
 
 import java.util.List;
 
@@ -107,7 +114,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
                 ((ViewHolderBilan) holder).cardViewBilan.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Intent intent = new Intent(myContext,Bilan_Activity.class);
+                        Intent intent = new Intent(myContext, Bilan_Activity.class);
 
                         myContext.startActivity(intent);
                     }
@@ -134,7 +141,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
                     ((ViewHolderSousModule) holder).cardViewSousModule.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            Intent intent = new Intent(myContext,Module_Activity.class);
+                            Intent intent = new Intent(myContext, Module_Activity.class);
                             if (v instanceof CardView){
                                 int color = ((CardView) v).getCardBackgroundColor().getDefaultColor();
                                 intent.putExtra("color", color);
