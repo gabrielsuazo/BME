@@ -109,14 +109,13 @@
             />
 
         <Button
-            android:id="@+id/patient5"
+            android:id="@+id/patient8"
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_below="@+id/recherche"
             android:layout_marginLeft="20dp"
-            android:background="@drawable/border_button"
             android:layout_toRightOf="@+id/patient4"
-            />
+            android:background="@drawable/border_button" />
 
         <Button
             android:id="@+id/patient6"
