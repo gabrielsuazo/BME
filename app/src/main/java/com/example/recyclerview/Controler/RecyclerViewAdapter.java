@@ -17,6 +17,7 @@ import com.example.recyclerview.Model.Bilan;
 import com.example.recyclerview.Model.SousModule;
 import com.example.recyclerview.R;
 import com.example.recyclerview.View.Bilan_Activity;
+import com.example.recyclerview.View.Informations_Patient_Activity;
 import com.example.recyclerview.View.Module_Activity;
 import com.example.recyclerview.View.Patient_Activity;
 

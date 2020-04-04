@@ -37,7 +37,7 @@ public class Bilan {
         return nouveau;
     }
 
-    boolean isVide(){
+    public boolean isVide(){
         return (this.idPatient==0);
     }
 }

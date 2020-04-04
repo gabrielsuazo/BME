@@ -36,7 +36,7 @@ public class Patient extends Personne{
     }
 
     //Création du Patient "vide" qui sert comme bouton pour créer des nouveaux patients
-    Patient(){
+    public Patient(){
         setDate("");
         setNom("");
         setPrenom("");
