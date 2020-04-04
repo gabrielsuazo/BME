@@ -1,4 +1,4 @@
-package com.example.recyclerview;
+package com.example.recyclerview.Controler;
 
 import android.app.Activity;
 import android.content.Context;
@@ -12,6 +12,13 @@ import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.recyclerview.Model.Bilan;
+import com.example.recyclerview.Model.SousModule;
+import com.example.recyclerview.R;
+import com.example.recyclerview.View.Bilan_Activity;
+import com.example.recyclerview.View.Module_Activity;
+import com.example.recyclerview.View.Patient_Activity;
 
 import java.util.List;
 

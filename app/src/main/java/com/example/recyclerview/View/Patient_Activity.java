@@ -1,4 +1,4 @@
-package com.example.recyclerview;
+package com.example.recyclerview.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
@@ -9,6 +9,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import com.example.recyclerview.Model.Bilan;
+
+import com.example.recyclerview.R;
+import com.example.recyclerview.Controler.RecyclerViewAdapter;
 
 import java.util.ArrayList;
 import java.util.List;

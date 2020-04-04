@@ -1,4 +1,4 @@
-package com.example.recyclerview;
+package com.example.recyclerview.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -9,6 +9,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import com.example.recyclerview.R;
 
 public class Login_activity extends AppCompatActivity {
     public static final String IDENTIFIANTS = "nom_utilisateur_et_mot_de_passe";

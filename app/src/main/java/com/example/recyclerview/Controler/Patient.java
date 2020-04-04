@@ -1,7 +1,7 @@
-package com.example.recyclerview;
+package com.example.recyclerview.Controler;
 
-import android.os.Parcel;
-
+import com.example.recyclerview.Model.Personne;
+import com.example.recyclerview.Model.Bilan;
 import java.util.ArrayList;
 
 /**
@@ -29,7 +29,7 @@ public class Patient extends Personne{
     }
 
 
-    Patient(String nom, String prenom, String date){
+    public Patient(String nom, String prenom, String date){
         super(nom,prenom);
         this.setDate(date);
         this.bilans = new ArrayList<Bilan>();

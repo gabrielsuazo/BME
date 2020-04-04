@@ -1,4 +1,4 @@
-package com.example.recyclerview;
+package com.example.recyclerview.Model;
 
 abstract public class Personne {
     private String nom, prenom;

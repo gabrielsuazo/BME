@@ -1,4 +1,4 @@
-package com.example.recyclerview;
+package com.example.recyclerview.Model;
 
 /**
  * Les objets de type module sont d'un des 4 types et sont associés à un bilan (numéro bilan)

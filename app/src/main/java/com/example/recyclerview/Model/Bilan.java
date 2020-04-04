@@ -1,4 +1,5 @@
-package com.example.recyclerview;
+package com.example.recyclerview.Model;
+
 
 import java.util.ArrayList;
 
@@ -12,7 +13,7 @@ public class Bilan {
     int numero;
     ArrayList<Module> modules;
 
-    Bilan(){
+    public Bilan(){
         modules = new ArrayList<Module>(4);
         modules.add(new Module("Module HANDICAP"));
         modules.add(new Module("Module MODE DE VIE"));

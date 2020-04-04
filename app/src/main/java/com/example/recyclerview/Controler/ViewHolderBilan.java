@@ -1,10 +1,12 @@
-package com.example.recyclerview;
+package com.example.recyclerview.Controler;
 
 import android.view.View;
 import android.widget.TextView;
 
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.recyclerview.R;
 
 public class ViewHolderBilan extends RecyclerView.ViewHolder {
 

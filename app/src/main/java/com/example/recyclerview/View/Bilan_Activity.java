@@ -1,4 +1,4 @@
-package com.example.recyclerview;
+package com.example.recyclerview.View;
 
 import android.content.Intent;
 import android.os.Build;
@@ -8,6 +8,8 @@ import android.view.View;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
+
+import com.example.recyclerview.R;
 
 
 public class Bilan_Activity extends AppCompatActivity implements View.OnClickListener {
@@ -43,7 +45,7 @@ public class Bilan_Activity extends AppCompatActivity implements View.OnClickLis
      */
     @Override
     public void onClick(View v) {
-        Intent intent = new Intent(this,Module_Activity.class);
+        Intent intent = new Intent(this, Module_Activity.class);
         if (v instanceof CardView){
             int color = ((CardView) v).getCardBackgroundColor().getDefaultColor();
             intent.putExtra("color", color);

@@ -1,4 +1,4 @@
-package com.example.recyclerview;
+package com.example.recyclerview.View;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -11,16 +11,18 @@ import android.widget.EditText;
 
 import androidx.fragment.app.DialogFragment;
 
-public class DialogueNom extends DialogFragment {
+import com.example.recyclerview.R;
 
-    private EditText nom = null;
+public class DialoguePrenom extends DialogFragment {
+
+    private EditText prenom = null;
 
     // Création de l'interface permettant de récupérer les informations saisies dans la boîte de dialogue
-    public interface NomDialogListener {
-        void onDialogNomPositiveClick(DialogFragment dialog, String nom);
+    public interface PrenomDialogListener {
+        void onDialogPrenomPositiveClick(DialogFragment dialog, String prenom);
     }
     // Listener permettant de transférer les informations de la boîte de dialogue vers l'hôte
-    private NomDialogListener listener;
+    private PrenomDialogListener listener;
 
     // Méthode de callback pour le transfert d'information vers l'hôte
     @Override
@@ -29,7 +31,7 @@ public class DialogueNom extends DialogFragment {
         // Verify that the host activity implements the callback interface
         try {
             // Instantiate the NomDialogListener so we can send events to the host
-            listener = (NomDialogListener) context;
+            listener = (PrenomDialogListener) context;
         } catch (ClassCastException e) {
             // The activity doesn't implement the interface, throw exception
             throw new ClassCastException("Erreur");
@@ -42,22 +44,22 @@ public class DialogueNom extends DialogFragment {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         // Définition de la mise en page de la boîte de dialogue
         LayoutInflater inflater = requireActivity().getLayoutInflater();
-        builder.setView(inflater.inflate(R.layout.dialogue_nom_layout, null));
+        builder.setView(inflater.inflate(R.layout.dialogue_prenom_layout, null));
         // Définition du titre de la boîte de dialogue
-        builder.setTitle(R.string.nouveauNom);
+        builder.setTitle(R.string.nouveauPrenom);
         // Définition du bouton "Confirmer"
         builder.setPositiveButton(R.string.confirmer, new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
                 // On récupère l'EditText
-                nom = ((AlertDialog) dialog).findViewById(R.id.zoneEditionNom);
+                prenom = ((AlertDialog) dialog).findViewById(R.id.zoneEditionPrenom);
                 // On renvoie le contenu de l'EditText vers l'activité
-                listener.onDialogNomPositiveClick(DialogueNom.this, nom.getText().toString());
+                listener.onDialogPrenomPositiveClick(DialoguePrenom.this, prenom.getText().toString());
             }
         });
         // Définition du bouton "Annuler"
         builder.setNegativeButton(R.string.annuler, new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
-                DialogueNom.this.getDialog().cancel();
+                DialoguePrenom.this.getDialog().cancel();
             }
         });
         // Create the AlertDialog object and return it
