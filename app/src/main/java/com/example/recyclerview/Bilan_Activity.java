@@ -34,6 +34,13 @@ public class Bilan_Activity extends AppCompatActivity implements View.OnClickLis
 
     }
 
+    /**
+     * La méthode onClick permet de configurer les boutons des 4 modules
+     * Lorsqu'on click sur un des modules, Bilan_Activity se relance avec le module choisi et le premier sous-module
+     * D’où sous_module_choisi = 0
+     * La couleur nous permet d'identifier le module choisi et donner cette couleur aux sous-modules
+     * @param v
+     */
     @Override
     public void onClick(View v) {
         Intent intent = new Intent(this,Module_Activity.class);

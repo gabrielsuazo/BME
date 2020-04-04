@@ -68,12 +68,10 @@ public class Informations_Patient_Activity extends AppCompatActivity implements 
     public void onDialogNomPositiveClick(DialogFragment dialog, String nom) {
         // Le nom du patient prend celui donné dans la boîte de dialogue
         nomPatient.setText(nom);
-        patient.setNom(nom);
     }
 
     public void onDialogPrenomPositiveClick(DialogFragment dialog, String prenom) {
         // Le prénom du patient prend celui donné dans la boîte de dialogue
         prenomPatient.setText(prenom);
-        patient.setPrenom(prenom);
     }
 }

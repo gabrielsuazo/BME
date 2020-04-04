@@ -1,5 +1,6 @@
 package com.example.recyclerview;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
@@ -14,10 +15,11 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
+
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     private Context myContext;
-    private List<Object> myData;        //Ce la liste qui va être affiché par le recycler view
+    private List<Object> myData;        //C'est la liste qui va être affiché par le recycler view
 
 
     public RecyclerViewAdapter(Context myContext, List<Object> myData){
@@ -25,7 +27,12 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
         this.myData = myData;
     }
 
-
+    /**
+     * Cette méthode permet de configurer le ViewHolder
+     * @param viewType permet de traiter les cas différents (voir méthode getItemViewType)
+     * @return le View Holder initialisé avec la view associée
+     * @throws IllegalStateException
+     */
     @NonNull
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) throws IllegalStateException {
@@ -57,6 +64,11 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
         return viewHolder;
     }
 
+    /**
+     * Cette méthode permet de configurer les objets dans le RV
+     * @param holder view holder
+     * @param position numéro qui nous donne la position de l'objet dans la liste
+     */
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, final int position) {
@@ -65,21 +77,28 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
             case 0: //RV Patient
                 ViewHolderPatient vhp = (ViewHolderPatient) holder;
                 final Patient patient = (Patient) myData.get(position);
+
+                //Bouton "Nouveau Patient"
                 if (patient.isVide()){
                     vhp.myNom.setText("Nouveau Patient");
                     vhp.myDate.setText("");
                     ((ViewHolderPatient) holder).cardViewPatient.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            patient.setPrenom("Entrer prenom");
-                            patient.setNom("Entre nom");
-                            patient.setDate("02/28/2020");
-                            myData.add(new Patient());
-                            notifyDataSetChanged();
+
+                            //On ajoute un nouveau patient à la liste. Il faut aussi actualiser la base de données
+                            //Valeurs à l'initialisation du patient. Ces valeurs seront modifiés dans l'activité des informations du patient.
+                            myData.add(position, new Patient("Entrer un nom","Entrer un prenom","28/02/2020"));
+                            notifyItemInserted(position);
+
+
+                            Intent intent = new Intent(myContext, Informations_Patient_Activity.class);
+                            myContext.startActivity(intent);
 
                         }
                     });
                 }
+                //Bouton patient existant
                 else {
                     vhp.myNom.setText(patient.getNom());
                     vhp.myDate.setText(patient.getDate());
@@ -89,8 +108,12 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
                         public void onClick(View v) {
 
                             Intent intent = new Intent(myContext, Patient_Activity.class);
+
+                            //Code temporaire: Normalement c'est juste l'id du patient qui est transmise.
+                            //Le nom et le prénom sont ensuite récupérés avec l'id.
                             intent.putExtra("Nom", patient.getNom());
                             intent.putExtra("Prenom", patient.getPrenom());
+                            //
 
                             myContext.startActivity(intent);
                         }
@@ -99,31 +122,61 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
                 }
 
                 break;
+
             case 1: //RV Bilans
                 ViewHolderBilan vhb = (ViewHolderBilan) holder;
                 Bilan bilan = (Bilan) myData.get(position);
-                vhb.numeroBilan.setText("Bilan " + bilan.getNumero());
 
-                ((ViewHolderBilan) holder).cardViewBilan.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Intent intent = new Intent(myContext,Bilan_Activity.class);
+                //Bouton pour ajouter des bilans
+                if (bilan.isVide()){
+                    vhb.numeroBilan.setText("Nouveau bilan");
+                    ((ViewHolderBilan) holder).cardViewBilan.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            //On ajoute un nouveau bilan à la liste. Il faut aussi actualiser la base de données
+                            Bilan nouveauBilan = new Bilan();
+                            nouveauBilan.setNumero(position+1);
+                            myData.add(position,nouveauBilan);
+                            notifyItemInserted(position);
 
-                        myContext.startActivity(intent);
-                    }
-                });
+                            Intent intent = new Intent(myContext,Bilan_Activity.class);
+                            myContext.startActivity(intent);
+                        }
+                    });
+
+                }
+                //Bouton pour les bilans
+                else {
+                    vhb.numeroBilan.setText("Bilan " + bilan.getNumero());
+
+                    ((ViewHolderBilan) holder).cardViewBilan.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Intent intent = new Intent(myContext,Bilan_Activity.class);
+
+                            myContext.startActivity(intent);
+                        }
+                    });
+                }
+
                 break;
+
             case 2: //RV SousModules
                 ViewHolderSousModule vhsm = (ViewHolderSousModule) holder;
                 SousModule sousModule = (SousModule) myData.get(position);
                 vhsm.nom.setText(sousModule.getNom());
+                //Les sous-modules affichés prennent la couleur du module choisi
                 vhsm.cardViewSousModule.setCardBackgroundColor(sousModule.getCouleur());
+
+                //Cas du sous-module choisi: sa taille augmente (et il n'a pas de ClickListener puisqu'on est déjà sur lui)
                 if (sousModule.isChoisi()){
                     ViewGroup.LayoutParams layoutParams = vhsm.cardViewSousModule.getLayoutParams();
                     layoutParams.width = ViewGroup.LayoutParams.MATCH_PARENT;
                     layoutParams.height = 150;
                     vhsm.cardViewSousModule.setLayoutParams(layoutParams);
                 }
+
+                //Cas des autres sous-modules: couleur grisé et configuration du ClickListener
                 else {
                     ViewGroup.LayoutParams layoutParams = vhsm.cardViewSousModule.getLayoutParams();
                     layoutParams.width = ViewGroup.LayoutParams.MATCH_PARENT;
@@ -132,6 +185,10 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
                     vhsm.cardViewSousModule.setBackgroundTintList(myContext.getResources().getColorStateList(R.color.gris));
 
                     ((ViewHolderSousModule) holder).cardViewSousModule.setOnClickListener(new View.OnClickListener() {
+                        /**
+                         * Cette méthode nous permet de relancer l'activité module avec le choix de sous-module
+                         * @param v View des sous-modules
+                         */
                         @Override
                         public void onClick(View v) {
                             Intent intent = new Intent(myContext,Module_Activity.class);
@@ -142,6 +199,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
 
                             }
                             myContext.startActivity(intent);
+                            ((Activity)myContext).finish();
                         }
                     });
                 }

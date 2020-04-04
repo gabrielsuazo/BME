@@ -18,6 +18,10 @@ import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Cette classe nous permet d'afficher le sous-module qui a été choisi
+ */
+
 public class Module_Activity extends AppCompatActivity implements View.OnClickListener {
 
     private CardView handicap,modeDeVie,habitat,conclusion,home;
@@ -51,22 +55,35 @@ public class Module_Activity extends AppCompatActivity implements View.OnClickLi
         retour.setOnClickListener(this);
         home.setOnClickListener(this);
 
-        RecyclerView myRV = (RecyclerView) findViewById(R.id.recyclerViewSousModules);         //Création du Recycler View
+
+        //Création du Recycler View qui affiche tous les sous-modules du module choisi
+        RecyclerView RVMenuSousModules = (RecyclerView) findViewById(R.id.recyclerViewSousModules);
         RecyclerViewAdapter myAdapter;
         myAdapter = new RecyclerViewAdapter(this,lstSousModules);
-        myRV.setLayoutManager((new StaggeredGridLayoutManager(lstSousModules.size(),StaggeredGridLayoutManager.VERTICAL)));
-        myRV.setAdapter(myAdapter);
+        RVMenuSousModules.setLayoutManager((new StaggeredGridLayoutManager(lstSousModules.size(),StaggeredGridLayoutManager.VERTICAL)));
+        RVMenuSousModules.setAdapter(myAdapter);
+
+        //Création du Recycler View du sous-module choisi
+
     }
 
-public void onClick(View v) {
+    /**
+     * Cette méthode permet de configurer le ClickListener du bouton Home, des boutons des modules et du bouton de retour
+     * @param v est la view. Son type et son id nous permettra de traiter les différents cas
+     */
+    public void onClick(View v) {
         Intent intent = new Intent();
         if (v instanceof CardView){
             switch (v.getId()){
+
+                //Cas bouton Home
                 case R.id.home:
                     //On revient à l'activité main (déjà créée) en éliminant les autres activités
                     intent = new Intent(this,MainActivity.class);
                     intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     break;
+
+                //Cas des modules
                 default:
                     intent = new Intent(this,Module_Activity.class);
                     int color = ((CardView) v).getCardBackgroundColor().getDefaultColor();
@@ -76,7 +93,8 @@ public void onClick(View v) {
 
             }
         }
-        else if (v instanceof ImageView) { //cas de l'option retour
+        //cas de l'option retour (code temporaire, ce bouton sera peut-être  supprimé)
+        else if (v instanceof ImageView) {
             //On revient à l'acitivité bilan (déjà créée)
             intent = new Intent(this, Bilan_Activity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
@@ -84,16 +102,26 @@ public void onClick(View v) {
 
         startActivity(intent);
         }
-@RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
+
+    /**
+     * Cette méthode permet de configurer les modules (taille, couleur et ClickListener)
+     * @param v view des modules
+     * @param color la couleur nous permet d'identifier le module choisi
+     * @param sous_module_choisi la méthode pour configurer les sous-modules se lance avec le sous-module choisi dans le module choisi
+     */
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
 public void configurationModules(CardView v, int color,int sous_module_choisi){
+
+        //Si c'est le module choisi, on augmente sa taille et on configure ses sous-modules
         if (v.getCardBackgroundColor().getDefaultColor() == color){
             ViewGroup.LayoutParams layoutParams = v.getLayoutParams();
             layoutParams.width = 250;
             layoutParams.height = 150;
-            v.setLayoutParams(layoutParams);        //Le module choisi est plus grand
+            v.setLayoutParams(layoutParams);
             configurationLstSousModules(v,color,lstSousModules,sous_module_choisi);
 
         }
+        //Sinon, on grise la couleur du module
         else {
             v.setBackgroundTintList(this.getResources().getColorStateList(R.color.gris));       //Les modules non choisis sont grisés
             v.setOnClickListener(this);
@@ -101,7 +129,15 @@ public void configurationModules(CardView v, int color,int sous_module_choisi){
         }
 }
 
-@RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
+    /**
+     *
+     * @param v View du module. Permet de l'identifier et faire le case avec son id
+     * @param color La couleur du module choisi est donné aux sous-modules
+     * @param lstSousModules liste qui est affiché dans RVMenuSousModules
+     * @param sous_module_choisi le sous-module choisi n'est pas grisé et sa taille augmente
+     * @see RecyclerViewAdapter méthode OnBindViewHolder, cas 2 pour la configuration des sous-modules
+     */
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
 public void configurationLstSousModules(CardView v, int color, List<Object> lstSousModules,int sous_module_choisi){
         switch (v.getId()){
             case R.id.moduleHandicap:   //Ajout des sous-modules au module Handicap

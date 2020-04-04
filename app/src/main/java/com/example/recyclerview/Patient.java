@@ -4,8 +4,14 @@ import android.os.Parcel;
 
 import java.util.ArrayList;
 
-public class Patient extends Personne{
+/**
+ * Chaque objet Patient représente un patient de l'ergo. Chaque patient est identifié par un numéro id
+ * date stocke la date de la dernière modification au patient
+ * Chaque patient possède une liste de bilans (que l'on récupère de la base de données avec l'id du patient)
+ */
 
+public class Patient extends Personne{
+    int id;
     private String date;
     ArrayList<Bilan> bilans;
 
@@ -29,6 +35,7 @@ public class Patient extends Personne{
         this.bilans = new ArrayList<Bilan>();
     }
 
+    //Création du Patient "vide" qui sert comme bouton pour créer des nouveaux patients
     Patient(){
         setDate("");
         setNom("");
