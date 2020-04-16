@@ -1,4 +1,4 @@
-package com.example.recyclerview;
+package com.example.recyclerview.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.DialogFragment;
@@ -8,6 +8,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+
+import com.example.recyclerview.R;
+import com.example.recyclerview.View.DialogMotdepasse;
+import com.example.recyclerview.View.DialogueNom;
+import com.example.recyclerview.View.DialoguePrenom;
 
 public class Ergotherapeute_Activity extends AppCompatActivity implements DialogueNom.NomDialogListener, DialoguePrenom.PrenomDialogListener {
 

@@ -1,8 +1,7 @@
-package com.example.recyclerview;
+package com.example.recyclerview.View;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
-import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -12,7 +11,8 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatDialogFragment;
-import androidx.fragment.app.DialogFragment;
+
+import com.example.recyclerview.R;
 
 import static android.content.Context.MODE_PRIVATE;
 

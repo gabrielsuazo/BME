@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="horizontal"
-    tools:context=".Patient_Activity">
+    tools:context=".View.Patient_Activity">
 
 
     <include layout="@layout/menu_gauche_activity_patient_et_bilan">
