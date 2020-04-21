@@ -15,10 +15,10 @@ public class Bilan {
 
     public Bilan(){
         modules = new ArrayList<Module>(4);
-        modules.add(new Module("Module HANDICAP"));
-        modules.add(new Module("Module MODE DE VIE"));
-        modules.add(new Module("Module HABITAT"));
-        modules.add(new Module("Conclusion"));
+        modules.add(new Module("Module HANDICAP",0));
+        modules.add(new Module("Module MODE DE VIE",0));
+        modules.add(new Module("Module HABITAT",0));
+        modules.add(new Module("Conclusion",0));
         this.idPatient = 2;
     }
 

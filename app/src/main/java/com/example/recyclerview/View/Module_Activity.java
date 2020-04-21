@@ -13,6 +13,7 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
+import com.example.recyclerview.Model.Module;
 import com.example.recyclerview.Model.SousModule;
 import com.example.recyclerview.R;
 import com.example.recyclerview.Controler.RecyclerViewAdapter;
@@ -60,12 +61,19 @@ public class Module_Activity extends AppCompatActivity implements View.OnClickLi
 
         //Création du Recycler View qui affiche tous les sous-modules du module choisi
         RecyclerView RVMenuSousModules = (RecyclerView) findViewById(R.id.recyclerViewSousModules);
-        RecyclerViewAdapter myAdapter;
-        myAdapter = new RecyclerViewAdapter(this,lstSousModules);
+        RecyclerViewAdapter adapterMenu;
+        adapterMenu = new RecyclerViewAdapter(this,lstSousModules);
         RVMenuSousModules.setLayoutManager((new StaggeredGridLayoutManager(lstSousModules.size(),StaggeredGridLayoutManager.VERTICAL)));
-        RVMenuSousModules.setAdapter(myAdapter);
+        RVMenuSousModules.setAdapter(adapterMenu);
 
         //Création du Recycler View du sous-module choisi
+        RecyclerView RVSousModuleChoisi = findViewById(R.id.recyclerViewSousModuleChoisi);
+        RecyclerViewAdapter adapterSousModule;
+        /* Il faut recuperer le Sous Module choisi (identifié grace à son numéro)
+        SousModule sousModuleChoisi = SQL get sous module numéro...
+        ArrayList<Object> questionSousModule = sousModuleChoisi.getQuestions();
+
+         */
 
     }
 
@@ -120,7 +128,7 @@ public void configurationModules(CardView v, int color,int sous_module_choisi){
             layoutParams.width = 250;
             layoutParams.height = 150;
             v.setLayoutParams(layoutParams);
-            configurationLstSousModules(v,color,lstSousModules,sous_module_choisi);
+            configurationLstSousModules(v,color,sous_module_choisi);
 
         }
         //Sinon, on grise la couleur du module
@@ -132,42 +140,35 @@ public void configurationModules(CardView v, int color,int sous_module_choisi){
 }
 
     /**
-     *
+     * Cette méthode est utile pour mettre la bonne couleur au menu des sous-modules.
+     * Ce code est temporaire. On doit pouvoir récupérer la liste des sous modules à partir du module choisi dans la base de données
+     * (Module moduleChoisi = SQL get module choisi, info obtenue par intent.getExtras()
+     *  Puis lstSousModules = moduleChoisi.getlst() )
      * @param v View du module. Permet de l'identifier et faire le case avec son id
      * @param color La couleur du module choisi est donné aux sous-modules
-     * @param lstSousModules liste qui est affiché dans RVMenuSousModules
      * @param sous_module_choisi le sous-module choisi n'est pas grisé et sa taille augmente
+     * lstSousModules: liste qui est affiché dans RVMenuSousModules
      * @see RecyclerViewAdapter méthode OnBindViewHolder, cas 2 pour la configuration des sous-modules
      */
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
-public void configurationLstSousModules(CardView v, int color, List<Object> lstSousModules,int sous_module_choisi){
+public void configurationLstSousModules(CardView v, int color,int sous_module_choisi){
+        Module moduleChoisi;
         switch (v.getId()){
-            case R.id.moduleHandicap:   //Ajout des sous-modules au module Handicap
-                lstSousModules.add(new SousModule("Identité",color));
-                lstSousModules.add(new SousModule("Fonctions cognitives",color));
-                lstSousModules.add(new SousModule("Motricité/Sensorialité",color));
-                lstSousModules.add(new SousModule("AVQ/AIVQ",color));
-                lstSousModules.add(new SousModule("Critères",color));
-                lstSousModules.add(new SousModule("Graphiques",color));
+            case R.id.moduleHandicap:
+                moduleChoisi = new Module("Module HANDICAP",color);
                 break;
-            case R.id.moduleModeDeVie:  //Ajout des sous-modules au module Mode de Vie
-                lstSousModules.add(new SousModule("Informations aidant",color));
-                lstSousModules.add(new SousModule("Activités du patient",color));
-                lstSousModules.add(new SousModule("Habiletés relationnelles/sociales",color));
-                lstSousModules.add(new SousModule("Besoins aidant",color));
-                lstSousModules.add(new SousModule("Synthèse",color));
+            case R.id.moduleModeDeVie:
+                moduleChoisi = new Module("Module MODE DE VIE",color);
                 break;
-            case R.id.moduleHabitat:    //Ajout des sous-modules au module Habitat
-                lstSousModules.add(new SousModule("Evaluation lieux de vie",color));
-                lstSousModules.add(new SousModule("Evaluation équipements et services quartier",color));
+            case R.id.moduleHabitat:
+                moduleChoisi = new Module("Module HABITAT",color);
                 break;
-            case R.id.conclusion:       //Ajout des sous-modules au module Conclusion
-                lstSousModules.add(new SousModule("Ergothérapie",color));
-                lstSousModules.add(new SousModule("Renseignements",color));
-                lstSousModules.add(new SousModule("Evaluation",color));
-                lstSousModules.add(new SousModule("Diagnostique",color));
+
+            default:
+                moduleChoisi = new Module("Conclusion",color);
                 break;
         }
+        lstSousModules = moduleChoisi.getLstSousModules();
 
         ((SousModule) lstSousModules.get(sous_module_choisi)).setChoisi();
 

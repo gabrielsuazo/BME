@@ -1,7 +1,9 @@
 package com.example.recyclerview.Controler;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Build;
 import android.view.LayoutInflater;
@@ -18,6 +20,7 @@ import com.example.recyclerview.Model.SousModule;
 import com.example.recyclerview.R;
 import com.example.recyclerview.View.Bilan_Activity;
 import com.example.recyclerview.View.Informations_Patient_Activity;
+import com.example.recyclerview.View.MainActivity;
 import com.example.recyclerview.View.Module_Activity;
 import com.example.recyclerview.View.Patient_Activity;
 
@@ -86,10 +89,16 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
                 ViewHolderPatient vhp = (ViewHolderPatient) holder;
                 final Patient patient = (Patient) myData.get(position);
 
+
                 //Bouton "Nouveau Patient"
                 if (patient.isVide()){
                     vhp.myNom.setText("Nouveau Patient");
-                    vhp.myDate.setText("");
+                    vhp.myNom.setTextColor(myContext.getResources().getColorStateList(R.color.couleurPatientsEtBilans));
+                    vhp.cardViewPatient.setCardBackgroundColor(myContext.getResources().getColorStateList(R.color.blanc));
+                    vhp.cardViewPatient.setCardElevation(0);
+                    vhp.myDate.setText("Appuyez pour créer");
+                    vhp.myDate.setTextColor(myContext.getResources().getColorStateList(R.color.couleurPatientsEtBilans));
+
                     ((ViewHolderPatient) holder).cardViewPatient.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
@@ -98,6 +107,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
                             //Valeurs à l'initialisation du patient. Ces valeurs seront modifiés dans l'activité des informations du patient.
                             myData.add(position, new Patient("Entrer un nom","Entrer un prenom","28/02/2020"));
                             notifyItemInserted(position);
+                            notifyItemChanged(position);
 
 
                             Intent intent = new Intent(myContext, Informations_Patient_Activity.class);
@@ -114,7 +124,6 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
                     ((ViewHolderPatient) holder).cardViewPatient.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-
                             Intent intent = new Intent(myContext, Patient_Activity.class);
 
                             //Code temporaire: Normalement c'est juste l'id du patient qui est transmise.
@@ -127,6 +136,30 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
                         }
 
                     });
+                    ((ViewHolderPatient) holder).cardViewPatient.setOnLongClickListener(new View.OnLongClickListener() {
+                        @Override
+                        public boolean onLongClick(View v) {
+
+                            new AlertDialog.Builder(myContext)
+                                    .setIcon(android.R.drawable.ic_delete)
+                                    .setTitle("Êtes vous sûr(e) ?")
+                                    .setMessage("Voulez vous supprimer " + patient.getNom() + " ?")
+                                    .setPositiveButton("Oui", new DialogInterface.OnClickListener() {
+                                        @Override
+                                        public void onClick(DialogInterface dialog, int which) {
+                                            myData.remove(position);
+                                            notifyItemRemoved(position);
+                                            notifyItemRangeChanged(0, myData.size());
+                                        }
+                                    })
+                                    .setNegativeButton("Non", null)
+                                    .show();
+
+
+                            return true;
+                        }
+                    });
+
                 }
 
                 break;
@@ -138,14 +171,19 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
                 //Bouton pour ajouter des bilans
                 if (bilan.isVide()){
                     vhb.numeroBilan.setText("Nouveau bilan");
+                    vhb.numeroBilan.setTextColor(myContext.getResources().getColorStateList(R.color.couleurPatientsEtBilans));
+                    vhb.cardViewBilan.setCardBackgroundColor(myContext.getResources().getColorStateList(R.color.blanc));
+                    vhb.cardViewBilan.setCardElevation(0);
+
                     ((ViewHolderBilan) holder).cardViewBilan.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
                             //On ajoute un nouveau bilan à la liste. Il faut aussi actualiser la base de données
+                            final int indice = position;
                             Bilan nouveauBilan = new Bilan();
-                            nouveauBilan.setNumero(position+1);
-                            myData.add(position,nouveauBilan);
-                            notifyItemInserted(position);
+                            nouveauBilan.setNumero(indice+1);
+                            myData.add(indice,nouveauBilan);
+                            notifyDataSetChanged();
 
                             Intent intent = new Intent(myContext,Bilan_Activity.class);
                             myContext.startActivity(intent);
