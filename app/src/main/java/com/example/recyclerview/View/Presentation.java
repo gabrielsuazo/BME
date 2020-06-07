@@ -13,7 +13,6 @@ import com.example.recyclerview.R;
 
 public class Presentation extends AppCompatActivity {
 
-    private TextView presentation;
     private Button retour;
     private TextView equipe;
 
@@ -40,12 +39,5 @@ public class Presentation extends AppCompatActivity {
                 "<p><u>Responsable Technique 2</u>: <b>Gabriel SUAZO BARAHONA</b></p>";
         equipe.setText(HtmlCompat.fromHtml(noms_equipe,0));
 
-
-        presentation = (TextView)findViewById(R.id.presentation);
-        String htmlText = "<h2>Remerciements</h2>\n"+
-                "<p>Nesma HOUMANI pour son soutien et ses conseils </p>\n"+
-                "<p>Mme Gwénaëlle REBOURS, M. Dominique ROSE et M. Hadj KALFAT pour leur bienveillance</p> \n"+
-                "<p>Mme Corinne TRUCHE pour nous avoir donné la chance de réaliser un tel projet durant une année </p>";
-        presentation.setText(HtmlCompat.fromHtml(htmlText,0));
     }
 }
