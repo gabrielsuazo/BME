@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".View.Presentation">
+    <LinearLayout
+        android:id="@+id/logos"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/tsp"
+            android:layout_width="wrap_content"
+            android:layout_height="100dp"
+            android:src="@mipmap/logo_tsp" />
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_toRightOf="@id/tsp"
+            android:src="@mipmap/logo_gate" />
+        <!--- L'image suivante est vite, elle est utilisé pour espacer le logo gate du logo anfe-->
+        <ImageView
+            android:layout_width="600dp"
+            android:layout_toRightOf="@id/tsp"
+            android:layout_height="0dp" />
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@mipmap/logo_anfe" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_below="@id/logos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_centerHorizontal="true">
+        <TextView
+            android:id="@+id/equipe"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:id="@+id/presentation"/>
+        <Button
+            android:text="retour"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/retour"
+            />
+    </LinearLayout>
+
+
+</RelativeLayout>

@@ -9,27 +9,27 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".View.Presentation"></activity>
         <activity
             android:name=".View.Module_Activity"
-            android:screenOrientation="landscape"></activity>
+            android:screenOrientation="landscape" />
         <activity
             android:name=".View.Patient_Activity"
-            android:screenOrientation="landscape"></activity>
+            android:screenOrientation="landscape" />
         <activity
             android:name=".View.Bilan_Activity"
-            android:screenOrientation="landscape"></activity>
+            android:screenOrientation="landscape" />
         <activity
             android:name=".View.Ergotherapeute_Activity"
-            android:screenOrientation="landscape"></activity>
-
-        <activity android:name=".View.Informations_Patient_Activity"
-            android:screenOrientation="landscape"></activity>
-
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".View.Informations_Patient_Activity"
+            android:screenOrientation="landscape" />
         <activity
             android:name=".View.MainActivity"
-            android:screenOrientation="landscape"></activity>
-        <activity android:name=".View.Login_activity"
-
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".View.Login_activity"
             android:screenOrientation="landscape">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -25,5 +25,7 @@
     <string name="mdp">Mot de passe</string>
     <string name="ancienMdp">Ancien mot de passe</string>
     <string name="nouveauMdp">Nouveau mot de passe</string>
+    <string name="credit">credit</string>
+    <string name="retour"><![CDATA[<-]]></string>
 
 </resources>

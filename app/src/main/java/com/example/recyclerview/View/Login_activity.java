@@ -22,11 +22,13 @@ public class Login_activity extends AppCompatActivity {
 
     EditText motDePasse = null;
     Button entrer = null;
+    Button credit = null;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_activity);
         entrer = (Button)findViewById(R.id.entrer);
+        entrer = (Button)findViewById(R.id.credit);
         motDePasse = (EditText)findViewById(R.id.mot_de_passe);
         verifie();
     }
@@ -58,5 +60,9 @@ public class Login_activity extends AppCompatActivity {
         }
     }
 
-
+// Listener associé au bouton credit
+    public void credit(View view) {
+        Intent intent = new Intent(Login_activity.this, Presentation.class);
+        startActivity(intent);  // lancement de l'activité Presentation
+    }
 }
