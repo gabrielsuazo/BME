@@ -36,7 +36,9 @@ public class Presentation extends AppCompatActivity {
                 "<p><u>Responsable design</u>: <b>Paul ARDANT</b> </p>\n"+
                 "<p><u>Responsable Communication</u>: <b>Jean-Baptiste BAITAIRIAN</b></p>\n"+
                 "<p><u>Responsable Technique 1</u>: <b>Ahmath GADJI</b></p>\n"+
-                "<p><u>Responsable Technique 2</u>: <b>Gabriel SUAZO BARAHONA</b></p>";
+                "<p><u>Responsable Technique 2</u>: <b>Gabriel SUAZO BARAHONA</b> </p>\n"+
+                "<br/>"+ "<br/>"+
+                "<p><i>    *********Annee Scolaire 2019-2020</i>*********</p>";
         equipe.setText(HtmlCompat.fromHtml(noms_equipe,0));
 
     }
